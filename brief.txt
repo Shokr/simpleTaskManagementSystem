@@ -1,0 +1,36 @@
+I followed the basic structure of a Flask application with a modular design. I created a separate api module to hold all the API-related code, including the routes module, which contains all the endpoints. I used SQLAlchemy as an ORM to interact with the SQLite database.
+
+For testing, I used the built-in Flask test_client() method to simulate API requests and responses. I also used the unittest module to create test cases for each endpoint.
+
+One challenge I faced during implementation was the proper serialization of the Task model objects. I used the marshmallow library to create a schema for the Task model, and then used this schema to serialize the objects into JSON format for returning in the API responses.
+
+Overall, my design choices were based on simplicity and modularity to make the code easy to read, maintain, and test.
+
+
+
+Design Choices:
+
+
+1. Flask Blueprint: I used Flask blueprint to structure my application. Blueprint is a way to organize related routes, views and models in a Flask application. This makes it easy to manage and scale the application.
+
+2. ORM: I used SQLAlchemy as the ORM for the database. SQLAlchemy provides a powerful and flexible API for interacting with databases.
+
+3. JSON Serialization: I used Marshmallow to serialize and deserialize the database objects. Marshmallow provides a simple and flexible way to convert complex Python objects to and from JSON.
+
+4. Error Handling: I added error handling to all the API endpoints. The API returns a JSON response with an error message and the corresponding HTTP status code.
+
+5. Date and Time Handling: I used Python's built-in datetime module to handle dates and times. The due date for a task is stored as a date object in the database. When creating or updating a task, the due date is parsed from the request body and converted to a date object.
+
+
+
+Challenges:
+
+1. Parsing Date Strings: One of the challenges I faced was parsing the due date string from the request body. I had to use Python's datetime module to parse the string and convert it to a date object.
+
+2. Handling Validation Errors: Marshmallow provides a simple way to validate request data. However, handling validation errors and returning meaningful error messages was a bit challenging.
+
+3. Updating Task: Updating a task required checking if the task exists in the database. If the task exists, the API needed to update the fields that were sent in the request body. I had to handle this carefully to avoid overwriting important fields.
+
+4. Testing: Testing the API endpoints required setting up a test environment and mocking the database connection. This was a bit challenging, but I was able to overcome it by using Flask's built-in test client.
+
+

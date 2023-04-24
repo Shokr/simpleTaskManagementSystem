@@ -1,0 +1,21 @@
+# Ignore compiled Python files
+*.pyc
+
+# Ignore virtual environments
+venv/
+
+# Ignore logs and other temporary files
+logs/
+tmp/
+
+# Ignore sensitive configuration files
+config.ini
+
+# Ignore IDE files
+.vscode/
+.idea/
+.pytest/
+
+instance
+migrations
+
